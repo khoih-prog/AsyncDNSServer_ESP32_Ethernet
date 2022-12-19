@@ -497,14 +497,15 @@ Submit issues to: [AsyncDNSServer_ESP32_Ethernet issues](https://github.com/khoi
 ## TO DO
 
  1. Fix bug. Add enhancement
+ 2. Add support to more `LwIP Ethernet` shields
+ 3. Add support to `ESP32_S2` and `ESP32_C3`
 
 
 ## DONE
 
- 1. Add support to **ESP32-based boards using LwIP W5500 Ethernet**
- 2. Add more examples.
- 3. Add debugging features
- 4. Add astyle using `allman` style. Restyle the library
+ 1. Add support to **ESP32/S3-based boards using LwIP W5500 or ENC28J60 Ethernet**
+ 2. Add debugging features
+ 3. Add astyle using `allman` style. Restyle the library
  
 ---
 ---
