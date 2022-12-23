@@ -18,8 +18,7 @@
    This is a captive portal because it will redirect any http request to http://192.168.x.x/
 */
 
-#if !( defined(ARDUINO_ESP32S3_DEV) || defined(ARDUINO_ESP32_S3_BOX) || defined(ARDUINO_TINYS3) || \
-       defined(ARDUINO_PROS3) || defined(ARDUINO_FEATHERS3) )
+#if !defined(ESP32)
   #error This code is designed for (ESP32S2/S3/C3 + LwIP W5500) to run on ESP32 platform! Please check your Tools->Board setting.
 #endif
 
@@ -70,9 +69,9 @@ IPAddress myDNS(8, 8, 8, 8);
 
 //////////////////////////////////////////////////////////
 
+// For ESP32-S3
 // Optional values to override default settings
-// Don't change unless you know what you're doing
-//#define ETH_SPI_HOST        SPI3_HOST
+//#define ETH_SPI_HOST        SPI2_HOST
 //#define SPI_CLOCK_MHZ       25
 
 // Must connect INT to GPIOxx or not working
@@ -82,6 +81,20 @@ IPAddress myDNS(8, 8, 8, 8);
 //#define MOSI_GPIO           11
 //#define SCK_GPIO            12
 //#define CS_GPIO             10
+
+// For ESP32_C3
+// Optional values to override default settings
+// Don't change unless you know what you're doing
+//#define ETH_SPI_HOST        SPI2_HOST
+//#define SPI_CLOCK_MHZ       25
+
+// Must connect INT to GPIOxx or not working
+//#define INT_GPIO            10
+
+//#define MISO_GPIO           5
+//#define MOSI_GPIO           6
+//#define SCK_GPIO            4
+//#define CS_GPIO             7
 
 //////////////////////////////////////////////////////////
 
