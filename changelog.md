@@ -1,9 +1,10 @@
-# AsyncDNSServer_ESP32_Ethernet Library
+# AsyncUDP_ESP32_SC_Ethernet
 
-[![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncDNSServer_ESP32_Ethernet.svg?)](https://www.ardu-badge.com/AsyncDNSServer_ESP32_Ethernet)
-[![GitHub release](https://img.shields.io/github/release/khoih-prog/AsyncDNSServer_ESP32_Ethernet.svg)](https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/releases)
+
+[![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUDP_ESP32_SC_Ethernet.svg?)](https://www.ardu-badge.com/AsyncUDP_ESP32_SC_Ethernet)
+[![GitHub release](https://img.shields.io/github/release/khoih-prog/AsyncUDP_ESP32_SC_Ethernet.svg)](https://github.com/khoih-prog/AsyncUDP_ESP32_SC_Ethernet/releases)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](#Contributing)
-[![GitHub issues](https://img.shields.io/github/issues/khoih-prog/AsyncDNSServer_ESP32_Ethernet.svg)](http://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/issues)
+[![GitHub issues](https://img.shields.io/github/issues/khoih-prog/AsyncUDP_ESP32_SC_Ethernet.svg)](http://github.com/khoih-prog/AsyncUDP_ESP32_SC_Ethernet/issues)
 
 
 <a href="https://www.buymeacoffee.com/khoihprog6" title="Donate to my libraries using BuyMeACoffee"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Donate to my libraries using BuyMeACoffee" style="height: 50px !important;width: 181px !important;" ></a>
@@ -16,14 +17,21 @@
 ## Table of Contents
 
 * [Changelog](#changelog)
-  * [Initial Releases v1.0.0](#initial-releases-v100)
+  * [Releases v2.1.0](#releases-v210)
+  * [Initial Releases v2.0.0](#initial-releases-v200)
 
 ---
 ---
 
 ## Changelog
 
-### Initial Releases v1.0.0
+### Releases v2.1.0
 
-1. Initial coding to support `ESP32/S2/S3/C3` boards using `LwIP W5500 or ENC28J60 Ethernet`
+1. Add support to `ESP32S2/C3` boards using `LwIP W5500 or ENC28J60 Ethernet`
+
+### Initial Releases v2.0.0
+
+1. Initial coding to port [AsyncUDP](https://github.com/espressif/arduino-esp32/tree/master/libraries/AsyncUDP) to ESP32_S3 boards using `LwIP W5500 or ENC28J60 Ethernet`
+2. Bump up to v2.0.0 to sync with [AsyncUDP v2.0.0](https://github.com/espressif/arduino-esp32/tree/master/libraries/AsyncUDP)
+
 
