@@ -517,7 +517,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ### Example [AsyncDNSServer_ESP32_SC_W5500](examples/ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500)
 
 
-https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/blob/07de4b17db2dc2fd60ca264c24c738b2d7a3feaa/examples/ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500.ino#L13-L175
+https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/blob/191867a13fe446dbd54b7548c352b33c1260bafa/examples/ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500.ino#L13-L189
 
 ---
 ---
