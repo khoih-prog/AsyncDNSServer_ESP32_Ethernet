@@ -1,20 +1,21 @@
 /****************************************************************************************************************************
   AsyncDNSServer_ESP32_Ethernet_Debug.h
 
-  For ESP32_Ethernet (ESP32/S2/S3/C3 + LwIP W5500 / ENC28J60)
+  For ESP32_Ethernet (ESP32/S2/S3/C3 + LwIP W5500 / W6100 / ENC28J60)
 
-  AsyncDNSServer_ESP32_Ethernet is a Async DNS Server library for the ESP32_Ethernet (ESP32/S2/S3/C3 + LwIP W5500 / ENC28J60)
+  AsyncDNSServer_ESP32_Ethernet is a library for the ESP32_Ethernet (ESP32/S2/S3/C3 + LwIP W5500 / W6100 / ENC28J60)
 
   Based on and modified from ESPAsyncDNSServer Library (https://github.com/devyte/ESPAsyncDNSServer)
   Built by Khoi Hoang https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet
   Licensed under GPLv3 license
 
-  Version: 1.1.0
+  Version: 1.2.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.0.0   K Hoang      18/12/2022 Initial coding for ESP32/ES32_S3 using LwIP W5500 / ENC28J60
   1.1.0   K Hoang      22/12/2022 Add support to ESP32S2/C3 using LwIP W5500 / ENC28J60
+  1.2.0   K Hoang      11/01/2023 Add support to ESP32/S2/S3/C3 using LwIP W6100
   *****************************************************************************************************************************/
 
 #pragma once

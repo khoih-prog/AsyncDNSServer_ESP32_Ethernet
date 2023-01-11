@@ -1,8 +1,8 @@
 {
   "name":"AsyncDNSServer_ESP32_Ethernet",
-  "version": "1.1.0",
-  "description":"Fully Asynchronous DNS Server Library for ESP32 boards using LwIP W5500 Ethernet. This library is one of the current or future and more advanced Async libraries, such as AsyncWebServer_ESP32_Ethernet, AsyncHTTPRequest_ESP32_Ethernet, AsyncHTTPSRequest_ESP32_Ethernet",
-  "keywords":"communication, data, async, udp, ntp, time, time-server, server, client, multicast, broadcast, webserver, esp32, esp32-s2, esp32-c3, W5500, lwip, udp-server, udp-multicast-server",
+  "version": "1.2.0",
+  "description":"Fully Asynchronous DNS Server Library for ESP32 boards using LwIP W5500, W6100 or ENC28J60 Ethernet. This library is one of the current or future and more advanced Async libraries, such as AsyncWebServer_ESP32_Ethernet, AsyncHTTPRequest_ESP32_Ethernet, AsyncHTTPSRequest_ESP32_Ethernet",
+  "keywords":"communication, data, async, udp, ntp, time, time-server, server, client, multicast, broadcast, webserver, esp32, esp32-s2, esp32-c3, w5500, w6100, enc28j60, lwip, lwip-w5500, lwip-w6100, lwip-enc28j60, udp-server, udp-multicast-server",
   "authors": 
   [
     {
@@ -34,7 +34,13 @@
     {
       "owner": "khoih-prog",
       "name": "WebServer_ESP32_W5500",
-      "version": "^1.5.1",
+      "version": "^1.5.2",
+      "platforms": "espressif32"
+    },
+    {
+      "owner": "khoih-prog",
+      "name": "WebServer_ESP32_W6100",
+      "version": "^1.5.2",
       "platforms": "espressif32"
     },
     {
@@ -46,7 +52,13 @@
     {
       "owner": "khoih-prog",
       "name": "WebServer_ESP32_SC_W5500",
-      "version": "^1.2.0",
+      "version": "^1.2.1",
+      "platforms": "espressif32"
+    },
+    {
+      "owner": "khoih-prog",
+      "name": "WebServer_ESP32_SC_W6100",
+      "version": "^1.2.1",
       "platforms": "espressif32"
     },
     {
@@ -63,6 +75,12 @@
     },
     {
       "owner": "khoih-prog",
+      "name": "AsyncUDP_ESP32_W6100",
+      "version": "^2.0.0",
+      "platforms": "espressif32"
+    },
+    {
+      "owner": "khoih-prog",
       "name": "AsyncUdp_ESP32_ENC",
       "version": "^2.0.0",
       "platforms": "espressif32"
@@ -70,7 +88,7 @@
     {
       "owner": "khoih-prog",
       "name": "AsyncUDP_ESP32_SC_Ethernet",
-      "version": "^2.1.0",
+      "version": "^2.2.0",
       "platforms": "espressif32"
     }
   ],

@@ -1,5 +1,5 @@
 /****************************************************************************************************************************
-  AsyncDNSServer_ESP32_ENC.ino
+  AsyncDNSServer_ESP32_W6100.ino
 
   For ESP32_Ethernet (ESP32/S2/S3/C3 + LwIP W6100 / W6100 / ENC28J60)
 
@@ -11,12 +11,12 @@
  *****************************************************************************************************************************/
 
 #if !( defined(ESP32) )
-  #error This code is designed for (ESP32 + LwIP ENC28J60) to run on ESP32 platform! Please check your Tools->Board setting.
+  #error This code is designed for (ESP32_S2/S3/C3 + LwIP W6100) to run on ESP32 platform! Please check your Tools->Board setting.
 #endif
 
-#define USING_W5500           false
-#define USING_W6100           false
-#define USING_ENC28J60        true
+#define USING_W5100           false
+#define USING_W6100           true
+#define USING_ENC28J60        false
 
 #define ASYNC_DNS_ESP32_ETHERNET_DEBUG_PORT      Serial
 
@@ -60,19 +60,34 @@ IPAddress mySN(255, 255, 255, 0);
 // Google DNS Server IP
 IPAddress myDNS(8, 8, 8, 8);
 
-/////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 
+// For ESP32-S3
 // Optional values to override default settings
-//#define SPI_HOST            1
-//#define SPI_CLOCK_MHZ       8
+//#define ETH_SPI_HOST        SPI2_HOST
+//#define SPI_CLOCK_MHZ       25
 
 // Must connect INT to GPIOxx or not working
 //#define INT_GPIO            4
 
-//#define MISO_GPIO           19
-//#define MOSI_GPIO           23
-//#define SCK_GPIO            18
-//#define CS_GPIO             5
+//#define MISO_GPIO           13
+//#define MOSI_GPIO           11
+//#define SCK_GPIO            12
+//#define CS_GPIO             10
+
+// For ESP32_C3
+// Optional values to override default settings
+// Don't change unless you know what you're doing
+//#define ETH_SPI_HOST        SPI2_HOST
+//#define SPI_CLOCK_MHZ       25
+
+// Must connect INT to GPIOxx or not working
+//#define INT_GPIO            10
+
+//#define MISO_GPIO           5
+//#define MOSI_GPIO           6
+//#define SCK_GPIO            4
+//#define CS_GPIO             7
 
 //////////////////////////////////////////////////////////
 
@@ -105,18 +120,18 @@ void setup()
 
   while (!Serial && (millis() < 5000));
 
-  Serial.print(F("\nStart AsyncDNSServer_ESP32_ENC on "));
+  Serial.print(F("\nStart AsyncDNSServer_ESP32_W6100 on "));
   Serial.print(ARDUINO_BOARD);
   Serial.print(F(" with "));
   Serial.println(SHIELD_TYPE);
-  Serial.println(WEBSERVER_ESP32_ENC_VERSION);
-  Serial.println(ASYNC_UDP_ESP32_ENC_VERSION);
+  Serial.println(WEBSERVER_ESP32_SC_W6100_VERSION);
+  Serial.println(ASYNC_UDP_ESP32_SC_ETHERNET_VERSION);
   Serial.println(ASYNC_DNS_SERVER_ESP32_ETHERNET_VERSION);
 
   Serial.setDebugOutput(true);
 
   DNS_LOGWARN(F("Default SPI pinout:"));
-  DNS_LOGWARN1(F("SPI_HOST:"), SPI_HOST);
+  DNS_LOGWARN1(F("SPI_HOST:"), ETH_SPI_HOST);
   DNS_LOGWARN1(F("MOSI:"), MOSI_GPIO);
   DNS_LOGWARN1(F("MISO:"), MISO_GPIO);
   DNS_LOGWARN1(F("SCK:"),  SCK_GPIO);
@@ -128,20 +143,22 @@ void setup()
   ///////////////////////////////////
 
   // To be called before ETH.begin()
-  ESP32_ENC_onEvent();
+  ESP32_W6100_onEvent();
 
   // start the ethernet connection and the server:
   // Use DHCP dynamic IP and random mac
   //bool begin(int MISO_GPIO, int MOSI_GPIO, int SCLK_GPIO, int CS_GPIO, int INT_GPIO, int SPI_CLOCK_MHZ,
   //           int SPI_HOST, uint8_t *W6100_Mac = W6100_Default_Mac);
-  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST );
-  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST, mac[millis() % NUMBER_OF_MAC] );
+  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST );
+  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST, mac[millis() % NUMBER_OF_MAC] );
 
   // Static IP, leave without this line to get IP via DHCP
   //bool config(IPAddress local_ip, IPAddress gateway, IPAddress subnet, IPAddress dns1 = 0, IPAddress dns2 = 0);
   //ETH.config(myIP, myGW, mySN, myDNS);
 
-  ESP32_ENC_waitForConnect();
+  ESP32_W6100_waitForConnect();
+
+  ///////////////////////////////////
 
   apIP = ETH.localIP();
 
