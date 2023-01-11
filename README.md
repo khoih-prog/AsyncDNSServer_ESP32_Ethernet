@@ -37,7 +37,8 @@
   * [2. ESP32 ADCs functions](#2-esp32-adcs-functions)
   * [3. ESP32 WiFi uses ADC2 for WiFi functions](#3-esp32-wifi-uses-adc2-for-wifi-functions)
 * [HOWTO Setting up the Async DNS Server](#howto-setting-up-the-async-dns-server)
-* [How to connect W5500, W6100 or ENC28J60 to ESP32/S2/S3/C3](#How-to-connect-W5500-W6100-or-ENC28J60-to-ESP32S2S3C3)
+* [How to connect W5500, W6100 or ENC28J60 to ESP32](#How-to-connect-W5500-W6100-or-ENC28J60-to-ESP32)
+* [How to connect W5500, W6100 or ENC28J60 to ESP32_S2/S3/C3](#How-to-connect-W5500-W6100-or-ENC28J60-to-ESP32_S2S3C3)
 * [Examples](#examples)
   * [1. For ESP32_W5500](#1-For-ESP32_W5500)
     * [ 1. AsyncCaptivePortalAdvanced_ESP32_W5500](examples/ESP32_W5500/AsyncCaptivePortalAdvanced_ESP32_W5500)
@@ -379,7 +380,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ---
 ---
 
-### How to connect W5500, W6100 or ENC28J60 to ESP32/S2/S3/C3
+### How to connect W5500, W6100 or ENC28J60 to ESP32_S2/S3/C3
 
 
 ##### W5500
@@ -418,28 +419,6 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 ---
 
-#### ESP32_DEV
-
-You can change the `INT` pin to another one. Default is `GPIO4`
-
-```cpp
-// Must connect INT to GPIOxx or not working
-#define INT_GPIO            4
-```
-
-
-|W5500, W6100 or ENC28J60|<--->|ESP32|
-|:-:|:-:|:-:|
-|MOSI|<--->|GPIO23|
-|MISO|<--->|GPIO19|
-|SCK|<--->|GPIO18|
-|CS/SS|<--->|GPIO5|
-|INT|<--->|GPIO4|
-|RST|<--->|RST|
-|GND|<--->|GND|
-|3.3V|<--->|3.3V|
-
----
 
 #### ESP32S3_DEV
 
