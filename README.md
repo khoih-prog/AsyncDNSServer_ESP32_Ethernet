@@ -168,7 +168,7 @@ to apply the better and faster **asynchronous** feature of the **powerful** [Asy
 
 ## Prerequisites
 
- 1. [`Arduino IDE 1.8.19+` for Arduino](https://www.arduino.cc/en/Main/Software)
+ 1. [`Arduino IDE 1.8.19+` for Arduino](https://github.com/arduino/Arduino/)
  2. [`ESP32 Core 2.0.6+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
  
 ### For ESP32
