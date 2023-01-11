@@ -37,8 +37,7 @@
   * [2. ESP32 ADCs functions](#2-esp32-adcs-functions)
   * [3. ESP32 WiFi uses ADC2 for WiFi functions](#3-esp32-wifi-uses-adc2-for-wifi-functions)
 * [HOWTO Setting up the Async DNS Server](#howto-setting-up-the-async-dns-server)
-* [How to connect W5500 or ENC28J60 to ESP32](#How-to-connect-W5500-or-ENC28J60-to-ESP32)
-* [How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S2S3C3)
+* [How to connect W5500, W6100 or ENC28J60 to ESP32/S2/S3/C3](#How-to-connect-W5500-W6100-or-ENC28J60-to-ESP32S2S3C3)
 * [Examples](#examples)
   * [1. For ESP32_W5500](#1-For-ESP32_W5500)
     * [ 1. AsyncCaptivePortalAdvanced_ESP32_W5500](examples/ESP32_W5500/AsyncCaptivePortalAdvanced_ESP32_W5500)
@@ -47,7 +46,9 @@
     * [ 4. AsyncDNSServer_ESP32_W5500](examples/ESP32_W5500/AsyncDNSServer_ESP32_W5500)
   * [2. For ESP32_ENC](#2-For-ESP32_ENC)
   * [3. For ESP32_SC_W5500](#3-For-ESP32_SC_W5500)
-  * [4. For ESP32_SC_ENC](#4-For-ESP32_SC_ENC) 
+  * [4. For ESP32_SC_ENC](#4-For-ESP32_SC_ENC)
+  * [5. For ESP32_W6100](#5-For-ESP32_W6100)
+  * [6. For ESP32_SC_W6100](#6-For-ESP32_SC_W6100)
 * [Example AsyncDNSServer_ESP32_SC_W5500](#example-AsyncDNSServer_ESP32_SC_W5500)
 * [Debug](#debug)
 * [Troubleshooting](#troubleshooting)
@@ -66,13 +67,13 @@
 
 #### Features
 
-This [AsyncDNSServer_ESP32_Ethernet library](https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet) is a fully `asynchronous DNSServer` library, designed for a trouble-free, multi-connection network environment, for **ESP32/S2/S3/C3 boards using LwIP W5500 or ENC28J60 Ethernet**.
+This [AsyncDNSServer_ESP32_Ethernet library](https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet) is a fully `asynchronous DNSServer` library, designed for a trouble-free, multi-connection network environment, for **ESP32/S2/S3/C3 boards using LwIP W5500, W6100 or ENC28J60 Ethernet**.
 
 This library is based on, modified from:
 
 1. [Develo's ESPAsyncDNSServer](https://github.com/devyte/ESPAsyncDNSServer)
 
-to apply the better and faster **asynchronous** feature of the **powerful** [AsyncDNSServer_ESP32_Ethernet Library](https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet) into **ESP32/S2/S3/C3 boards using LwIP W5500 or ENC28J60 Ethernet**.
+to apply the better and faster **asynchronous** feature of the **powerful** [AsyncDNSServer_ESP32_Ethernet Library](https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet) into **ESP32/S2/S3/C3 boards using LwIP W5500, W6100 or ENC28J60 Ethernet**.
 
 
 #### Why Async is better
@@ -91,7 +92,7 @@ to apply the better and faster **asynchronous** feature of the **powerful** [Asy
 3. **ESP32-S2 (ESP32-S2 Saola, AI-Thinker ESP-12K, etc.)**
 4. **ESP32-C3 (ARDUINO_ESP32C3_DEV, etc.)**
 
- using `LwIP W5500 or ENC28J60 Ethernet`
+ using `LwIP W5500, W6100 or ENC28J60 Ethernet`
  
 --- 
 
@@ -130,6 +131,17 @@ to apply the better and faster **asynchronous** feature of the **powerful** [Asy
     <img src="https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/raw/main/Images/W5500_small.png">
 </p> 
  
+
+---
+
+#### W6100
+
+`FULL_DUPLEX, 100Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/raw/main/Images/W6100.png">
+</p>
+  
 ---
 
 
@@ -146,7 +158,7 @@ to apply the better and faster **asynchronous** feature of the **powerful** [Asy
 
 ### To-be Supported Boards
 
-#### 1. New ESP32 using LwIP W5500 or ENC28J60 Ethernet
+#### 1. New ESP32 using LwIP W5500, W6100 or ENC28J60 Ethernet
 
 
 
@@ -156,20 +168,23 @@ to apply the better and faster **asynchronous** feature of the **powerful** [Asy
 ## Prerequisites
 
  1. [`Arduino IDE 1.8.19+` for Arduino](https://www.arduino.cc/en/Main/Software)
- 2. [`ESP32 Core 2.0.5+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
+ 2. [`ESP32 Core 2.0.6+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
  
 ### For ESP32
  
- 3. [`WebServer_ESP32_W5500 library 1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_W5500) for `ESP32` using W5500. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_W5500)
- 4. [`WebServer_ESP32_ENC library 1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_ENC) for `ESP32` using ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_ENC)
- 5. [`AsyncUDP_ESP32_W5500 library 2.0.0+`](https://github.com/khoih-prog/AsyncUDP_ESP32_W5500) for `ESP32` using W5500. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUDP_ESP32_W5500.svg?)](https://www.ardu-badge.com/AsyncUDP_ESP32_W5500)
- 6. [`AsyncUdp_ESP32_ENC library 2.0.0+`](https://github.com/khoih-prog/AsyncUdp_ESP32_ENC) for `ESP32` using ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUdp_ESP32_ENC.svg?)](https://www.ardu-badge.com/AsyncUdp_ESP32_ENC)
+ 3. [`WebServer_ESP32_W5500 library 1.5.2+`](https://github.com/khoih-prog/WebServer_ESP32_W5500) for `ESP32` using W5500. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_W5500)
+ 4. [`WebServer_ESP32_W6100 library 1.5.2+`](https://github.com/khoih-prog/WebServer_ESP32_W6100) for `ESP32` using W6100. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_W6100.svg?)](https://www.ardu-badge.com/WebServer_ESP32_W6100)
+ 5. [`WebServer_ESP32_ENC library 1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_ENC) for `ESP32` using ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_ENC)
+ 6. [`AsyncUDP_ESP32_W5500 library 2.0.0+`](https://github.com/khoih-prog/AsyncUDP_ESP32_W5500) for `ESP32` using W5500. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUDP_ESP32_W5500.svg?)](https://www.ardu-badge.com/AsyncUDP_ESP32_W5500)
+ 7. [`AsyncUDP_ESP32_W6100 library 2.0.0+`](https://github.com/khoih-prog/AsyncUDP_ESP32_W6100) for `ESP32` using W6100. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUDP_ESP32_W6100.svg?)](https://www.ardu-badge.com/AsyncUDP_ESP32_W6100)
+ 8. [`AsyncUdp_ESP32_ENC library 2.0.0+`](https://github.com/khoih-prog/AsyncUdp_ESP32_ENC) for `ESP32` using ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUdp_ESP32_ENC.svg?)](https://www.ardu-badge.com/AsyncUdp_ESP32_ENC)
  
 ### For ESP32_S2/S3/C3 
  
- 7. [`WebServer_ESP32_SC_W5500 library 1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) for `ESP32_S2/S3/C3` using W5500. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
- 8. [`WebServer_ESP32_SC_ENC library 1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) for `ESP32_S2/S3/C3` using ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
- 9. [`AsyncUDP_ESP32_SC_Ethernet library 2.1.0+`](https://github.com/khoih-prog/AsyncUDP_ESP32_SC_Ethernet) for `ESP32_S2/S3/C3` using W5500 or ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUDP_ESP32_SC_Ethernet.svg?)](https://www.ardu-badge.com/AsyncUDP_ESP32_SC_Ethernet)
+ 9. [`WebServer_ESP32_SC_W5500 library 1.2.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) for `ESP32_S2/S3/C3` using W5500. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
+10. [`WebServer_ESP32_SC_W6100 library 1.2.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W6100) for `ESP32_S2/S3/C3` using W6100. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W6100.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W6100)
+11. [`WebServer_ESP32_SC_ENC library 1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) for `ESP32_S2/S3/C3` using ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
+12. [`AsyncUDP_ESP32_SC_Ethernet library 2.2.0+`](https://github.com/khoih-prog/AsyncUDP_ESP32_SC_Ethernet) for `ESP32_S2/S3/C3` using W5500, W6100 or ENC28J60. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/AsyncUDP_ESP32_SC_Ethernet.svg?)](https://www.ardu-badge.com/AsyncUDP_ESP32_SC_Ethernet)
  
 ---
 ---
@@ -297,12 +312,10 @@ void setup()
 
   // start the ethernet connection and the server:
   // Use DHCP dynamic IP and random mac
-  uint16_t index = millis() % NUMBER_OF_MAC;
-
   //bool begin(int MISO_GPIO, int MOSI_GPIO, int SCLK_GPIO, int CS_GPIO, int INT_GPIO, int SPI_CLOCK_MHZ,
   //           int SPI_HOST, uint8_t *W5500_Mac = W5500_Default_Mac);
-  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST );
-  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST, mac[index] );
+  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST );
+  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST, mac[millis() % NUMBER_OF_MAC] );
 
   // Static IP, leave without this line to get IP via DHCP
   //bool config(IPAddress local_ip, IPAddress gateway, IPAddress subnet, IPAddress dns1 = 0, IPAddress dns2 = 0);
@@ -341,7 +354,7 @@ void loop()
 ---
 ---
 
-### How to connect W5500 or ENC28J60 to ESP32
+### How to connect W5500, W6100 or ENC28J60 to ESP32
 
 You can change the `INT` pin to another one. Default is `GPIO4`
 
@@ -351,12 +364,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ```
 
 
-|W5500 or ENC28J60|<--->|ESP32|
+|W5500, W6100 or ENC28J60|<--->|ESP32|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO23|
 |MISO|<--->|GPIO19|
 |SCK|<--->|GPIO18|
-|SS|<--->|GPIO5|
+|CS/SS|<--->|GPIO5|
 |INT|<--->|GPIO4|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -366,7 +379,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 ---
 ---
 
-### How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3
+### How to connect W5500, W6100 or ENC28J60 to ESP32/S2/S3/C3
 
 
 ##### W5500
@@ -381,6 +394,17 @@ You can change the `INT` pin to another one. Default is `GPIO4`
     <img src="https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/raw/main/Images/W5500_small.png">
 </p> 
  
+
+---
+
+#### W6100
+
+`FULL_DUPLEX, 100Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/raw/main/Images/W6100.png">
+</p>
+   
 ---
 
 
@@ -391,6 +415,29 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/raw/main/Images/ENC28J60.png">
 </p>
+
+---
+
+#### ESP32_DEV
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            4
+```
+
+
+|W5500, W6100 or ENC28J60|<--->|ESP32|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO23|
+|MISO|<--->|GPIO19|
+|SCK|<--->|GPIO18|
+|CS/SS|<--->|GPIO5|
+|INT|<--->|GPIO4|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
 
 ---
 
@@ -409,12 +456,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 ---
 
-|W5500 or ENC28J60|<--->|ESP32_S3|
+|W5500, W6100 or ENC28J60|<--->|ESP32_S3|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO11|
 |MISO|<--->|GPIO13|
 |SCK|<--->|GPIO12|
-|SS|<--->|GPIO10|
+|CS/SS|<--->|GPIO10|
 |INT|<--->|GPIO4|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -437,12 +484,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 #define INT_GPIO            4
 ```
 
-|W5500 or ENC28J60|<--->|ESP32_S2|
+|W5500, W6100 or ENC28J60|<--->|ESP32_S2|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO35|
 |MISO|<--->|GPIO37|
 |SCK|<--->|GPIO36|
-|SS|<--->|GPIO34|
+|CS/SS|<--->|GPIO34|
 |INT|<--->|GPIO4|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -465,12 +512,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 #define INT_GPIO            10
 ```
 
-|W5500 or ENC28J60|<--->|ESP32_C3|
+|W5500, W6100 or ENC28J60|<--->|ESP32_C3|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO6|
 |MISO|<--->|GPIO5|
 |SCK|<--->|GPIO4|
-|SS|<--->|GPIO7|
+|CS/SS|<--->|GPIO7|
 |INT|<--->|GPIO10|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -510,14 +557,28 @@ You can change the `INT` pin to another one. Default is `GPIO4`
  3. [AsyncDNServerFull_ESP32_SC_ENC](examples/ESP32_SC_ENC/AsyncDNServerFull_ESP32_SC_ENC) 
  4. [AsyncDNSServer_ESP32_SC_ENC](examples/ESP32_SC_ENC/AsyncDNSServer_ESP32_SC_ENC)
  
+#### 5. For ESP32_W6100
+
+ 1. [AsyncCaptivePortalAdvanced_ESP32_W6100](examples/ESP32_W6100/AsyncCaptivePortalAdvanced_ESP32_W6100)
+ 2. [AsyncCaptivePortal_ESP32_W6100](examples/ESP32_W6100/AsyncCaptivePortal_ESP32_W6100)
+ 3. [AsyncDNServerFull_ESP32_W6100](examples/ESP32_W6100/AsyncDNServerFull_ESP32_W6100) 
+ 4. [AsyncDNSServer_ESP32_W6100](examples/ESP32_W6100/AsyncDNSServer_ESP32_W6100)
  
+#### 6. For ESP32_SC_W6100
+
+ 1. [AsyncCaptivePortalAdvanced_ESP32_SC_W6100](examples/ESP32_SC_W6100/AsyncCaptivePortalAdvanced_ESP32_SC_W6100)
+ 2. [AsyncCaptivePortal_ESP32_SC_W6100](examples/ESP32_SC_W6100/AsyncCaptivePortal_ESP32_SC_W6100)
+ 3. [AsyncDNServerFull_ESP32_SC_W6100](examples/ESP32_SC_W6100/AsyncDNServerFull_ESP32_SC_W6100) 
+ 4. [AsyncDNSServer_ESP32_SC_W6100](examples/ESP32_SC_W6100/AsyncDNSServer_ESP32_SC_W6100)
+ 
+   
 --- 
 ---
 
 ### Example [AsyncDNSServer_ESP32_SC_W5500](examples/ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500)
 
 
-https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/blob/191867a13fe446dbd54b7548c352b33c1260bafa/examples/ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500.ino#L13-L189
+https://github.com/khoih-prog/AsyncDNSServer_ESP32_Ethernet/blob/47558b20590536b7492533d2b5eeafaad3e57e53/examples/ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500/AsyncDNSServer_ESP32_SC_W5500.ino#L11-L186
 
 ---
 ---
@@ -547,9 +608,9 @@ You can also change the debugging level from 0 to 4
 
 ### Troubleshooting
 
-If you get compilation errors, more often than not, you may need to install a newer version of Arduino IDE, the Arduino `ESP32` core or depending libraries.
+If you get compilation errors, more often than not, you may need to install a newer version of Arduino IDE, the [Arduino `ESP32`](https://github.com/espressif/arduino-esp32) core or depending libraries.
 
-Sometimes, the library will only work if you update the `ESP32` core to the latest version because I am always using the latest cores /libraries.
+Sometimes, the library will only work if you update the [`ESP32`](https://github.com/espressif/arduino-esp32) core to the latest and stable version because I'm always using the latest stable cores/libraries.
 
 
 ---
@@ -575,6 +636,7 @@ Submit issues to: [AsyncDNSServer_ESP32_Ethernet issues](https://github.com/khoi
  2. Add debugging features
  3. Add astyle using `allman` style. Restyle the library
  4. Add support to **ESP32_S2/C3-based boards using LwIP W5500 or ENC28J60 Ethernet**
+ 4. Add support to **ESP32/S2/S3/C3-based boards using LwIP W6100 Ethernet**
  
  
 ---
@@ -596,6 +658,7 @@ Submit issues to: [AsyncDNSServer_ESP32_Ethernet issues](https://github.com/khoi
 ### Contributing
 
 If you want to contribute to this project:
+
 - Report bugs and errors
 - Ask for enhancements
 - Create issues and pull requests
